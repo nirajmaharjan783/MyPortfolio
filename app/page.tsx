@@ -28,7 +28,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Link href="/Project" className="btn">
+              <Link href="/projects" className="btn">
                 View Projects
               </Link>
               <Link href="/contact" className="btn">
@@ -46,7 +46,7 @@ export default function Home() {
               FEATURED <br /> PROJECTS
             </h2>
 
-            <Link href="/Project" className="btn w-fit">
+            <Link href="/projects" className="btn w-fit">
               All Projects
             </Link>
           </div>
