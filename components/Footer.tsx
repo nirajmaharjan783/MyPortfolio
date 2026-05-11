@@ -20,7 +20,7 @@ export default function Footer() {
                     <div>
                         <p className="mb-4 text-sm uppercase tracking-widest muted">Pages</p>
                         <div className="flex flex-col gap-3">
-                            <Link href="/project">Project</Link>
+                            <Link href="/projects">Project</Link>
                             <Link href="/skills">Skills</Link>
                             <Link href="/about">About</Link>
                             <Link href="/contact">Contact</Link>
