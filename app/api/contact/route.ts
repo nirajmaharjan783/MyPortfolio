@@ -58,6 +58,8 @@ export async function POST(request: Request) {
         });
 
         if (error) {
+            console.log("Resend error:", error);
+
             return Response.json(
                 { success: false, error: "Email sending failed." },
                 { status: 500 }
@@ -68,7 +70,9 @@ export async function POST(request: Request) {
             { success: true, message: "Message sent successfully.", data },
             { status: 200 }
         );
-    } catch {
+    } catch (error) {
+        console.log("Resend error:", error);
+
         return Response.json(
             { success: false, error: "Something went wrong." },
             { status: 500 }
