@@ -39,7 +39,7 @@ export default function ProjectPage() {
                                     ))}
                                 </div>
 
-                                <div className="mt-6 flex flex-wrap gap-4">
+                                <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-4">
                                     <a
                                         href={project.github}
                                         target="_blank"
