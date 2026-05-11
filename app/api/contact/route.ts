@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 
         const { data, error } = await resend.emails.send({
             from: "MyPortfolio Contact <onboarding@resend.dev>",
-            to: [process.env.CONTACT_TO_EMAIL || "your_email@gmail.com"],
+            to: [process.env.CONTACT_TO_EMAIL || "nirajmaharjan783@gmail.com"],
             subject: `New Contact Form Message from ${safeName}`,
             replyTo: safeEmail,
             html: `
