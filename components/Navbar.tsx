@@ -27,7 +27,7 @@ export default function Navbar() {
                     ))}
                 </nav>
 
-                <Link href="/contact" className="btn hidden md:inline-flex">
+                <Link href="/contact" className="btn md:inline-flex">
                     Start Project
                 </Link>
             </div>
