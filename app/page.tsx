@@ -1,65 +1,155 @@
-import Image from "next/image";
+import Link from "next/link";
+import { projects, skills } from "@/data/projects";
+
+const featuredProjects = projects.filter((project) => project.featured);
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      <section className="relative min-h-screen overflow-hidden pt-36">
+        <div className="gradient-orb right-10 top-24" />
+
+        <div className="container">
+          <p className="mb-8 max-w-xl text-lg uppercase tracking-[0.3em] muted">
+            Full-Stack Web Developer
           </p>
+
+          <h1 className="hero-title">
+            I BUILD <br />
+            MODERN <br />
+            WEB APPS
+          </h1>
+
+          <div className="mt-10 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <p className="max-w-xl text-xl leading-relaxed muted">
+              Hi, I am Niraj. I create full-stack web applications using
+              Next.js, React, TypeScript, Node.js, Express, MongoDB,
+              PostgreSQL, Prisma, and modern authentication systems.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <Link href="/Project" className="btn">
+                View Projects
+              </Link>
+              <Link href="/contact" className="btn">
+                Contact Me
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="py-24">
+        <div className="container">
+          <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <h2 className="section-title">
+              FEATURED <br /> PROJECTS
+            </h2>
+
+            <Link href="/Project" className="btn w-fit">
+              All Projects
+            </Link>
+          </div>
+
+          <div className="grid gap-8">
+            {featuredProjects.map((project, index) => (
+              <article key={project.title} className="card p-4">
+                <div className="project-image" />
+
+                <div className="grid gap-6 p-4 md:grid-cols-[1fr_1.2fr] md:items-end">
+                  <div>
+                    <p className="mb-3 text-sm uppercase tracking-widest muted">
+                      0{index + 1} / {project.category}
+                    </p>
+
+                    <h3 className="text-3xl font-black tracking-tight md:text-5xl">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  <div>
+                    <p className="muted leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {project.tech.slice(0, 5).map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border border-white/10 px-3 py-1 text-sm text-white/70"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-6 flex flex-wrap gap-4">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn"
+                      >
+                        GitHub
+                      </a>
+
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn"
+                        >
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="border-y border-white/10 py-20">
+        <div className="container grid gap-10 md:grid-cols-3">
+          <div>
+            <h3 className="big-text">6+</h3>
+            <p className="muted mt-2">GitHub projects added to portfolio</p>
+          </div>
+
+          <div>
+            <h3 className="big-text">3</h3>
+            <p className="muted mt-2">Main stacks: MERN, Next.js, PostgreSQL</p>
+          </div>
+
+          <div>
+            <h3 className="big-text">100%</h3>
+            <p className="muted mt-2">Focused on practical web development</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="container">
+          <h2 className="section-title mb-12">
+            TECH <br /> STACK
+          </h2>
+
+          <div className="grid gap-4 md:grid-cols-3 transition duration-300 hover:text-rose-400 hover:translate-y-1 hover:underline">
+            {skills.map((skill, index) => (
+              <div
+                key={skill}
+                className="card flex items-center justify-between p-6 transition hover:bg-white  "
+              >
+                <h3 className="text-xl font-black">{skill}</h3>
+                <span className="text-sm">0{index + 1}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
