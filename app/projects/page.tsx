@@ -39,12 +39,12 @@ export default function ProjectPage() {
                                     ))}
                                 </div>
 
-                                <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-4">
+                                <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                                     <a
                                         href={project.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="btn"
+                                        className="btn w-full sm:w-fit"
                                     >
                                         GitHub
                                     </a>
@@ -54,7 +54,7 @@ export default function ProjectPage() {
                                             href={project.live}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="btn"
+                                            className="btn w-full sm:w-fit"
                                         >
                                             Live Demo
                                         </a>

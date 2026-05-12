@@ -65,7 +65,7 @@ export const projects = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP"],
     github: "https://github.com/nirajmaharjan783/Landing-Page",
     live: "https://landing-page-topaz-tau-80.vercel.app",
-    featured: false,
+    featured: true,
   },
   {
     title: "MERN Crash Course",
@@ -85,6 +85,7 @@ export const skills = [
   "TypeScript",
   "JavaScript",
   "Tailwind CSS",
+  "GSAP",
   "Node.js",
   "Express",
   "MongoDB",
