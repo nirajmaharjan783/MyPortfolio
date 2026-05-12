@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="border-t border-white/10 py-10">
+        <footer className="footer-animate border-t border-white/10 py-10">
             <div className="container">
                 <div className="marquee border-b border-white/10 pb-10">
                     <span>LET&apos;S BUILD SOMETHING WILD — </span>
@@ -11,16 +11,21 @@ export default function Footer() {
 
                 <div className="grid gap-8 pt-10 md:grid-cols-3">
                     <div>
-                        <h3 className="text-2xl font-black">© 2026 Niraj • Built with React Next.js & GSAP</h3>
+                        <h3 className="text-2xl font-black">
+                            © 2026 Niraj • Built with React, Next.js & GSAP
+                        </h3>
                         <p className="muted mt-3 max-w-sm">
-                            A full-stack developer building modern, scalable, and user-focused web experiences.
+                            A full-stack developer building modern, scalable, and
+                            user-focused web experiences.
                         </p>
                     </div>
 
                     <div>
-                        <p className="mb-4 text-sm uppercase tracking-widest muted">Pages</p>
+                        <p className="mb-4 text-sm uppercase tracking-widest muted">
+                            Pages
+                        </p>
                         <div className="flex flex-col gap-3">
-                            <Link href="/projects">Project</Link>
+                            <Link href="/projects">Projects</Link>
                             <Link href="/skills">Skills</Link>
                             <Link href="/about">About</Link>
                             <Link href="/contact">Contact</Link>

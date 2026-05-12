@@ -9,10 +9,10 @@ const navItems = [
 
 export default function Navbar() {
     return (
-        <header className="fixed left-0 top-0 z-40 w-full">
+        <header className="nav-animate fixed left-0 top-0 z-40 w-full">
             <div className="container flex items-center justify-between py-6">
                 <Link href="/" className="text-xl font-black tracking-tight">
-                    <h3 className="text-2xl font-black tracking-tighter">NIRAJ</h3>
+                    <span className="text-2xl font-black tracking-tighter">NIRAJ</span>
                 </Link>
 
                 <nav className="hidden items-center gap-8 rounded-full border border-white/10 bg-black/40 px-7 py-3 backdrop-blur-md md:flex">
@@ -27,7 +27,7 @@ export default function Navbar() {
                     ))}
                 </nav>
 
-                <Link href="/contact" className="btn md:inline-flex">
+                <Link href="/contact" className="btn hidden md:inline-flex">
                     Start Project
                 </Link>
             </div>

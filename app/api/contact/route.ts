@@ -3,7 +3,7 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 function escapeHtml(value: string) {
-    return value
+    return String(value)
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
@@ -31,6 +31,13 @@ export async function POST(request: Request) {
             );
         }
 
+        if (!process.env.CONTACT_TO_EMAIL) {
+            return Response.json(
+                { success: false, error: "Missing CONTACT_TO_EMAIL." },
+                { status: 500 }
+            );
+        }
+
         const safeName = escapeHtml(name);
         const safeEmail = escapeHtml(email);
         const safeProjectType = escapeHtml(projectType);
@@ -38,19 +45,16 @@ export async function POST(request: Request) {
 
         const { data, error } = await resend.emails.send({
             from: "MyPortfolio Contact <onboarding@resend.dev>",
-            to: [process.env.CONTACT_TO_EMAIL || "nirajmaharjan783@gmail.com"],
+            to: [process.env.CONTACT_TO_EMAIL],
             subject: `New Contact Form Message from ${safeName}`,
             replyTo: safeEmail,
             html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6;">
           <h2>New Contact Form Message</h2>
-
           <p><strong>Name:</strong> ${safeName}</p>
           <p><strong>Email:</strong> ${safeEmail}</p>
           <p><strong>Project Type:</strong> ${safeProjectType}</p>
-
           <hr />
-
           <p><strong>Message:</strong></p>
           <p>${safeMessage}</p>
         </div>
@@ -61,7 +65,7 @@ export async function POST(request: Request) {
             console.log("Resend error:", error);
 
             return Response.json(
-                { success: false, error: "Email sending failed." },
+                { success: false, error: error.message || "Email sending failed." },
                 { status: 500 }
             );
         }
@@ -71,7 +75,7 @@ export async function POST(request: Request) {
             { status: 200 }
         );
     } catch (error) {
-        console.log("Resend error:", error);
+        console.log("Contact API error:", error);
 
         return Response.json(
             { success: false, error: "Something went wrong." },

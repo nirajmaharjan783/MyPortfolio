@@ -24,7 +24,6 @@ export default function ContactPage() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
         setStatus("");
 
         if (
@@ -73,25 +72,38 @@ export default function ContactPage() {
     return (
         <main className="pt-36">
             <section className="container">
-                <p className="mb-6 uppercase tracking-[0.3em] muted">Contact</p>
+                <p className="hero-fade mb-6 uppercase tracking-[0.3em] muted">
+                    Contact
+                </p>
 
                 <h1 className="section-title mb-12">
-                    LET&apos;S START <br /> A PROJECT
+                    <span className="reveal-line">
+                        <span>LET&apos;S START</span>
+                    </span>
+                    <span className="reveal-line">
+                        <span>A PROJECT</span>
+                    </span>
                 </h1>
 
                 <div className="grid gap-10 md:grid-cols-[1fr_1.2fr]">
-                    <div>
+                    <div className="hero-fade">
                         <p className="text-xl leading-relaxed muted">
-                            Have an idea or project in mind? Let&apos;s build a modern digital experience together.
+                            Have an idea or project in mind? Let&apos;s build a modern
+                            digital experience together.
                         </p>
 
                         <div className="mt-10">
                             <p className="muted">Email</p>
-                            <h3 className="text-2xl font-black">nirajmaharjan783@gmail.com</h3>
+                            <h3 className="text-2xl font-black">
+                                nirajmaharjan783@gmail.com
+                            </h3>
                         </div>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="card grid gap-5 p-6">
+                    <form
+                        onSubmit={handleSubmit}
+                        className="hero-fade card grid gap-5 p-6"
+                    >
                         <input
                             className="input"
                             name="name"

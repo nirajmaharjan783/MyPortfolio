@@ -10,28 +10,34 @@ export default function Home() {
         <div className="gradient-orb right-10 top-24" />
 
         <div className="container">
-          <p className="mb-8 max-w-xl text-lg uppercase tracking-[0.3em] muted">
+          <p className="hero-fade mb-8 max-w-xl text-lg uppercase tracking-[0.3em] muted">
             Full-Stack Web Developer
           </p>
 
           <h1 className="hero-title">
-            I BUILD <br />
-            MODERN <br />
-            WEB APPS
+            <span className="reveal-line">
+              <span>I BUILD</span>
+            </span>
+            <span className="reveal-line">
+              <span>MODERN</span>
+            </span>
+            <span className="reveal-line">
+              <span>WEB APPS</span>
+            </span>
           </h1>
 
-          <div className="mt-10 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div className="hero-fade mt-10 flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <p className="max-w-xl text-xl leading-relaxed muted">
               Hi, I am Niraj. I create full-stack web applications using
               Next.js, React, TypeScript, Node.js, Express, MongoDB,
               PostgreSQL, Prisma, and modern authentication systems.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link href="/projects" className="btn">
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <Link href="/projects" className="btn w-full sm:w-fit">
                 View Projects
               </Link>
-              <Link href="/contact" className="btn">
+              <Link href="/contact" className="btn w-full sm:w-fit">
                 Contact Me
               </Link>
             </div>
@@ -39,9 +45,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="projects-section py-24">
         <div className="container">
-          <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="section-reveal mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <h2 className="section-title">
               FEATURED <br /> PROJECTS
             </h2>
@@ -53,13 +59,13 @@ export default function Home() {
 
           <div className="grid gap-8">
             {featuredProjects.map((project, index) => (
-              <article key={project.title} className="card p-4">
+              <article key={project.title} className="project-card card p-4">
                 <div className="project-image" />
 
                 <div className="grid gap-6 p-4 md:grid-cols-[1fr_1.2fr] md:items-end">
                   <div>
                     <p className="mb-3 text-sm uppercase tracking-widest muted">
-                      0{index + 1} / {project.category}
+                      {String(index + 1).padStart(2, "0")} / {project.category}
                     </p>
 
                     <h3 className="text-3xl font-black tracking-tight md:text-5xl">
@@ -88,7 +94,7 @@ export default function Home() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn"
+                        className="btn w-full sm:w-fit"
                       >
                         GitHub
                       </a>
@@ -98,7 +104,7 @@ export default function Home() {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="btn"
+                          className="btn w-full sm:w-fit"
                         >
                           Live Demo
                         </a>
@@ -112,39 +118,43 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 py-20">
+      <section className="section-reveal border-y border-white/10 py-20">
         <div className="container grid gap-10 md:grid-cols-3">
-          <div>
+          <div className="skill-card">
             <h3 className="big-text">6+</h3>
             <p className="muted mt-2">GitHub projects added to portfolio</p>
           </div>
 
-          <div>
+          <div className="skill-card">
             <h3 className="big-text">3</h3>
             <p className="muted mt-2">Main stacks: MERN, Next.js, PostgreSQL</p>
           </div>
 
-          <div>
+          <div className="skill-card">
             <h3 className="big-text">100%</h3>
             <p className="muted mt-2">Focused on practical web development</p>
           </div>
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="skills-section py-24">
         <div className="container">
-          <h2 className="section-title mb-12">
-            TECH <br /> STACK
-          </h2>
+          <div className="section-reveal mb-12">
+            <h2 className="section-title">
+              TECH <br /> STACK
+            </h2>
+          </div>
 
-          <div className="grid gap-4 md:grid-cols-3 transition duration-300 hover:text-rose-400 hover:translate-y-1 hover:underline">
+          <div className="grid gap-4 md:grid-cols-3">
             {skills.map((skill, index) => (
               <div
                 key={skill}
-                className="card flex items-center justify-between p-6 transition hover:bg-white  "
+                className="skill-card card flex items-center justify-between p-6 transition duration-300 hover:-translate-y-1 hover:bg-white hover:text-black"
               >
                 <h3 className="text-xl font-black">{skill}</h3>
-                <span className="text-sm">0{index + 1}</span>
+                <span className="text-sm">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
             ))}
           </div>

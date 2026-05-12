@@ -3,21 +3,28 @@ import { projects } from "@/data/projects";
 export default function ProjectPage() {
     return (
         <main className="pt-36">
-            <section className="container">
-                <p className="mb-6 uppercase tracking-[0.3em] muted">My Projects</p>
+            <section className="projects-section container">
+                <p className="hero-fade mb-6 uppercase tracking-[0.3em] muted">
+                    My Projects
+                </p>
 
                 <h1 className="section-title mb-16">
-                    SELECTED <br /> DEVELOPMENT WORK
+                    <span className="reveal-line">
+                        <span>SELECTED</span>
+                    </span>
+                    <span className="reveal-line">
+                        <span>DEVELOPMENT WORK</span>
+                    </span>
                 </h1>
 
                 <div className="grid gap-8 md:grid-cols-2">
                     {projects.map((project, index) => (
-                        <article key={project.title} className="card p-5">
+                        <article key={project.title} className="project-card card p-5">
                             <div className="project-image h-[320px]" />
 
                             <div className="p-4">
                                 <p className="mb-3 text-sm uppercase tracking-widest muted">
-                                    0{index + 1} / {project.category}
+                                    {String(index + 1).padStart(2, "0")} / {project.category}
                                 </p>
 
                                 <h2 className="text-3xl font-black tracking-tight">
